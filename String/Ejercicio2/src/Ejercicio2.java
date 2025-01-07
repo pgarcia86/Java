@@ -11,6 +11,8 @@ Utilizar replace, para modificar la string a
 Presentar en consola el contenido de la string a y de la string b. 
 */
 
+import java.util.Arrays;
+
 public class Ejercicio2 {
     public static void main(String[] args) throws Exception {
 
