@@ -9,7 +9,18 @@ public class Ejercicio9 {
 
         String cadena = "banana";
         String[] arrayCadena = cadena.split("");
-        System.out.println(Arrays.toString(arrayCadena));
+        Arrays.sort(arrayCadena);
+        Integer i = 0;
+        String cadenaOrdenada = String.join("", arrayCadena);
 
+        while(i < cadenaOrdenada.length()){
+            System.out.println(cadenaOrdenada.charAt(i) + ": " + (cadenaOrdenada.lastIndexOf(cadenaOrdenada.charAt(i)) - i + 1));
+            if(cadenaOrdenada.lastIndexOf(cadenaOrdenada.charAt(i)) == cadenaOrdenada.length()){
+                i = cadenaOrdenada.length();
+            }
+            else{
+                i = cadenaOrdenada.lastIndexOf(cadenaOrdenada.charAt(i)) + 1;
+            }
+        }
     }
 }
