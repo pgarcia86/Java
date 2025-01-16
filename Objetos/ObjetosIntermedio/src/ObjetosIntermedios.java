@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+import empleado.Empleado;
+import empleado.Gerente;
+import estudiante.Estudiante;
+import producto.Producto;
+
 public class ObjetosIntermedios {
     public static void main(String[] args) throws Exception {
 

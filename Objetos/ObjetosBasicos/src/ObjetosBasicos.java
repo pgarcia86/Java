@@ -1,3 +1,8 @@
+import persona.Persona;
+import rectangulo.Rectangulo;
+import car.Car;
+import cuentabancaria.CuentaBancaria;
+
 public class ObjetosBasicos {
     public static void main(String[] args) throws Exception {
         Car auto = new Car("Ford", "Mondeo", 1990, "Rojo");
