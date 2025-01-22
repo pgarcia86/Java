@@ -10,7 +10,7 @@ public class Calculadora {
     }
 
     public void iniciar(){
-        int ingresoEnNumero;
+        String ingreso = "";
         do{
             System.out.println("Ingrese la opcion deseada: \n" + 
             "1) SUMAR\n" + 
@@ -18,23 +18,24 @@ public class Calculadora {
             "3) MULTIPLICAR\n" + 
             "4) DIVIDIR\n" +
             "0) SALIR");
-            ingresoEnNumero = chequeoEntrada();
-            operacionElegida(ingresoEnNumero);
-        } while(ingresoEnNumero != 0);
+            ingreso = scanner.nextLine();
+            if(chequeoEntrada(ingreso)){
+                operacionElegida(Integer.parseInt(ingreso));
+            }
+        } while(!ingreso.equals("0"));
         System.out.println("Muchas gracias\n" + 
         "Saliendo del programa");
     }
     
-    public int chequeoEntrada(){
-        String ingreso = scanner.nextLine();
-        int entradaEnNumero = -1;
+    public boolean chequeoEntrada(String ingreso){
         try{
-            entradaEnNumero = Integer.parseInt(ingreso);
+            Integer.parseInt(ingreso);
+            return true;
         }
         catch(NumberFormatException e){
             System.out.println("No se ingreso un numero");
+            return false;
         }
-        return entradaEnNumero;
     }
 
     public void operacionElegida(int opcion){
@@ -61,42 +62,43 @@ public class Calculadora {
         }
     }
 
+    public int entradaNumero(){
+        String numero = "";
+        do{
+            System.out.println("\nIngresa un numero: ");
+            numero = scanner.nextLine();
+        }while(!chequeoEntrada(numero));
+        return Integer.parseInt(numero);
+    }
 
     public String sumar(){
-        System.out.println("Vas a sumar dos numeros" + 
-            "\nIngresa el primero: ");
-        int num1 = chequeoEntrada();
-        System.out.println("Ingresa el segundo numero: ");
-        int num2 = chequeoEntrada();
+        System.out.println("Vas a sumar dos numeros");
+        int num1 = entradaNumero();
+        int num2 = entradaNumero();
         return "La suma entre " + num1 + " y " + num2 + " es igual a: " + (num1+num2);
     }
 
     public String restar(){
-        System.out.println("Vas a restar dos numeros" + 
-            "\nIngresa el primero: ");
-        int num1 = chequeoEntrada();
-        System.out.println("Ingresa el segundo numero: ");
-        int num2 = chequeoEntrada();
+        System.out.println("Vas a restar dos numeros");
+        int num1 = entradaNumero();
+        int num2 = entradaNumero();
         return "La resta entre " + num1 + " y " + num2 + " es igual a: " + (num1-num2);
     }
 
     public String multiplicar(){
-        System.out.println("Vas a multiplicar dos numeros" + 
-            "\nIngresa el primero: ");
-        int num1 = chequeoEntrada();
-        System.out.println("Ingresa el segundo numero: ");
-        int num2 = chequeoEntrada();
+        System.out.println("Vas a multiplicar dos numeros");
+        int num1 = entradaNumero();
+        int num2 = entradaNumero();
         return "La multiplicacion entre " + num1 + " y " + num2 + " es igual a: " + (num1*num2);
     }
 
     public String dividir(){
-        System.out.println("Vas a dividir dos numeros" + 
-            "\nIngresa el dividendo: ");
-        int num1 = chequeoEntrada();
-        System.out.println("Ingresa el divisor: ");
-        int num2 = chequeoEntrada();
+        System.out.println("Vas a dividir dos numeros");
+        int num1 = entradaNumero();
+        int num2 = entradaNumero();
+  
         try{
-            return "La division entre " + num1 + " y " + num2 + " es igual a: " + (num1/num2);    
+            return "La division entre " + num1 + " y " + num2 + " es igual a: " + (num1/num2);
         }
         catch(ArithmeticException e){
             System.out.println("No se puede dividir por cero");
