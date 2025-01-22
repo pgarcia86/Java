@@ -17,6 +17,7 @@ public class Calculadora {
             "2) RESTAR\n" + 
             "3) MULTIPLICAR\n" + 
             "4) DIVIDIR\n" +
+            "5) RAIZ CUADRADA\n" +
             "0) SALIR");
             ingreso = scanner.nextLine();
             if(chequeoEntrada(ingreso)){
@@ -55,6 +56,13 @@ public class Calculadora {
                 break;
             case 4:
                 System.out.println(dividir());
+                break;
+            case 5:
+            try{
+                System.out.println(raizCuadrada());
+            }catch(ExcepcionRaizCuadrada e){
+                System.out.println(e.getMessage());
+            }
                 break;
             default:
                 System.out.println("No ingresaste una opcion valida");
@@ -104,5 +112,14 @@ public class Calculadora {
             System.out.println("No se puede dividir por cero");
             return "No se pudo hacer la division";
         }
+    }
+
+    public String raizCuadrada() throws ExcepcionRaizCuadrada{
+        System.out.println("Vas a hacer la raiz cuadrada de un numero");
+        int num1 = entradaNumero();
+        if(num1 < 0){
+            throw new ExcepcionRaizCuadrada("No se puede hacer la raiz cuadrada de un numero negativo");
+        }
+        return "La raiz cuadrada de " + num1 + " es igual a: " + Math.sqrt(num1);
     }
 }
