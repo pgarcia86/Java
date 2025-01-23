@@ -24,8 +24,6 @@ public class Calculadora {
                 operacionElegida(Integer.parseInt(ingreso));
             }
         } while(!ingreso.equals("0"));
-        System.out.println("Muchas gracias\n" + 
-        "Saliendo del programa");
     }
     
     public boolean chequeoEntrada(String ingreso){
