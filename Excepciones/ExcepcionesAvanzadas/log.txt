@@ -1,0 +1,3 @@
+No se puede hacer la operacion - Fecha: 2025-01-23 - Hora: 18:21:23.623287800 
+/ by zero
+No se puede hacer la operacion - Fecha: 2025-01-23 - Hora: 18:23:36.411582600 
